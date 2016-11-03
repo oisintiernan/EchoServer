@@ -9,10 +9,10 @@ echo :: IO ()
 echo = do
     putStrLn "what word do you want in caps? Enter q to end program"
     input' <- getLine
-    h <- connectTo "localhost" (PortNumber 8000)
+    h <- connectTo "localhost" (PortNumber 8000) --message directed at.
     --h <- connectTo "www.scss.tcd.ie" (PortNumber 80)
     hSetBuffering h LineBuffering--means that each character wont consume a whole packet to itself
-    hPutStr h ("GET /echo.php?message=" ++ input' ++ "\nHost: localhost:8000  \r\n\r\n")
+    hPutStr h ("GET /echo.php?message=" ++ input' ++ "\nHost: localhost:8000  \r\n\r\n")-- send get request to required website capitals will be returned.
     --hPutStr h ("GET /~ebarrett/lectures/cs4032/echo.php?message=" ++ input' ++ "\nHost: www.scss.tcd.ie  \r\n\r\n")
     contents <- hGetContents h
     putStrLn (contents)
