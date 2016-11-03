@@ -14,7 +14,6 @@ echo = do
     hSetBuffering h LineBuffering--means that each character wont consume a whole packet to itself
     hPutStr h ("GET /echo.php?message=" ++ input' ++ "\nHost: localhost:8000  \r\n\r\n")
     --hPutStr h ("GET /~ebarrett/lectures/cs4032/echo.php?message=" ++ input' ++ "\nHost: www.scss.tcd.ie  \r\n\r\n")
-    --hPutStr h "GET /~ebarrett/lectures/cs4032/echo.php?message=" ++ input' ++ "HTTP/1.1\nHost: www.scss.tcd.ie  \r\n\r\n"
     contents <- hGetContents h
     putStrLn (contents)
     hClose h
